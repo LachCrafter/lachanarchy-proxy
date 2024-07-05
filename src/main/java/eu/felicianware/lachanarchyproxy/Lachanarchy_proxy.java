@@ -6,6 +6,7 @@ import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.proxy.ProxyServer;
+import eu.felicianware.lachanarchyproxy.commands.BcCommand;
 import eu.felicianware.lachanarchyproxy.commands.JoinCommand;
 import org.slf4j.Logger;
 
@@ -26,5 +27,6 @@ public class Lachanarchy_proxy {
     public void onProxyInitialization(ProxyInitializeEvent event) {
         CommandManager commandManager = proxy.getCommandManager();
         commandManager.register("join", new JoinCommand(proxy, logger));
+        commandManager.register("bc", new BcCommand(proxy), "broadcast");
     }
 }
